@@ -21,49 +21,81 @@ const items = [
   { name: "Chair", weight: "9", value: "3" },
 ];
 
-const select = document.getElementById("item-list");
-const maxWeight = document.getElementById("max-weight");
+const itemList = document.getElementById("itemList");
+const maxWeightInput = document.getElementById("maxWeight");
+const addItemButton = document.getElementById("addItem");
+const doneButton = document.getElementById("done");
+const status = document.getElementById("status");
 
-const knapsack = { capacity: 0, items: [], weight: 0, value: 0 };
-
+const knapsack = { capacity: 0, items: [], totalWeight: 0, totalValue: 0 };
 
 for (let i = 0; i < items.length; i++) {
-  let option = document.createElement("OPTION"),
-    text = document.createTextNode(items[i]);
-  option.appendChild(text);
-  option.setAttribute("value", items[i]);
-  select.insertBefore(option, select.lastChild);
+  let option = document.createElement("option");
+  option.text = items[i].name + ", value: " + items[i].value;
+  option.value = i;
+  itemList.add(option);
 }
 
-// const maxWeight = parseInt(
-//   prompt("Enter the maximum weight of your knapsack:")
-// );
+addItemButton.addEventListener("click", function () {
+  let maxWeight = maxWeightInput.value;
+  if (!maxWeight) {
+    alert("Please enter maximum weight");
+    return;
+  }
+  let selectedIndex = itemList.value;
+  if (selectedIndex !== "") {
+    let selectedItem = items[selectedIndex];
+    while (
+      parseFloat(selectedItem.weight) <= maxWeight - knapsack.totalWeight &&
+      selectedIndex !== ""
+    ) {
+      knapsack.items.push(selectedItem);
+      knapsack.items.push(selectedItem.name);
+      knapsack.totalWeight += parseFloat(selectedItem.weight);
+      knapsack.totalValue += selectedItem.value;
 
-// function selectItems() {
-//   if (isNaN(maxWeight) || maxWeight <= 0) {
-//     alert("Invalid Maximum Weight");
-//   } else {
-//     for (let i = 0; i < items.length; i++) {
-//       const selected = select.options[i].selected;
-//       if (selected) {
-//         if (knapsack.weight + parseInt(items[i].weight) <= maxWeight) {
-//           knapsack.items.push(items[i].name);
-//           knapsack.weight += parseInt(items[i].weight);
-//           knapsack.value += parseInt(items[i].value);
-//         } else {
-//           alert(`Cannot add ${items[i].name} exceeds maximum weight`);
-//         }
-//       }
-//     }
-//     const knapsackDiv = document.createElement("div");
-//     knapsackDiv.style.backgroundColor = "green";
-//     knapsackDiv.innerHTML =
-//       <div>
-//         <p> Capacity: ${maxWeight}</p>
-//         <p>Items: ${knapsack.items.join(",")}</p>
-//         <p>Weight: ${knapsack.weight}</p>
-//       </div>
-//     ;
-//     document.body.appendChild(knapsackDiv);
-//   }
-// }
+      let itemElement = document.createElement("li");
+      itemElement.innertext = selectedItem.name;
+
+      document.getElementById("itemList").appendChild(itemElement);
+      document.getElementById("totalWeight").innerText = knapsack.totalWeight;
+      document.getAnimations("totalValue").innerText = knapsack.totalValue;
+
+      status.innerHTML =
+        "Status: Bag currently contains " +
+        knapsack.items.length +
+        " items, with a total weight of " +
+        knapsack.totalWeight +
+        " and a total value of " +
+        knapsack.totalValue;
+      selectedItem = items[selectedIndex];
+    }
+    if (knapsack.totalWeight === parseFloat(maxWeight)) {
+      status.innerHTML = "Status: Bag is full";
+      status.style.backgroundColor = "red";
+    }
+  } else {
+    alert("Item is too heavy to add to the bag");
+  }
+}),
+  doneButton.addEventListener("click", function () {
+    let maxWeight = maxWeightInput.value;
+    if (!maxWeight) {
+      alert("Please enter the maximum weight");
+      return;
+    }
+    status.innerHTML =
+      "Status: Bag contains " +
+      knapsack.items.length +
+      " items, with a total weight of " +
+      knapsack.totalWeight +
+      " and a total value of " +
+      knapsack.totalValue;
+    if (knapsack.totalWeight === maxWeight) {
+      status.innerHTML = "Status: Bag is full";
+      status.style.backgroundColor = "red";
+    } else if (knapsack.totalWeight > maxWeight) {
+      status.innerHTML = "Status: Bag is over capacity";
+      status.style.backgroundColor = "red";
+    }
+  });

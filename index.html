@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/style.css">
   <title>Knapsack</title>
 </head>
 
@@ -11,22 +12,36 @@
 
   <form>
     <h1>Knapsack Problem</h1>
-   
-    <label for="max-weight">Maximum Weight:</label>
-    <input type="number" id="max-weight">
-    <br>
-    <!-- <label for="item-list">Item List:</label> -->
-    <select id="item-list" onclick="selectItems();"> 
-    <option value="">Select an item</option>
-  <option value="0">Item 1(weight: 10, value: 20)</option></select>
+
+    <div class="wrapme">
+      <div>
+        <label for="max-weight">Maximum Weight:</label>
+        <input type="number" id="maxWeight">
+      </div>
+      <br>
+      <!-- <label for="item-list">Item List:</label> -->
+      <select id="itemList">
+        <option value="">Select an item</option>
+        <!-- <option value="0">Item 1(weight: 10, value: 20)</option> -->
+      </select>
+    </div>
     <br>
     <button id="addItem" type="button">Add Item</button>
     <button id="done" type="button">Done</button>
     <div id="status">Status: bag is empty</div>
+
+    <div id="bag">
+      <h3>Bag Contents</h3>
+      <ul id="itemList">Selected Items:
+        <!-- <li></li> -->
+      </ul>
+      <p>Total Weight: <span id="totalWeight"></span></p>
+      <p>Total Value: <span id="totalValue"></span></p>
+    </div>
   </form>
 
   <script>
-    
+
   </script>
 
   <!-- <table id="result-table">
@@ -138,5 +153,6 @@
   </script> -->
 
 </body>
+<script src="./script.js"></script>
 
 </html>

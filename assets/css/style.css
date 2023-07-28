@@ -1,0 +1,45 @@
+body {
+  margin: 2% auto;
+  padding: 0;
+}
+
+form {
+  width: 60%;
+  line-height: 1.5;
+  margin: auto;
+  padding: 20px;
+  font-size: 24px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 38px;
+}
+
+.wrapme {
+  display: flex;
+  flex-direction: row;
+  /* padding-bottom: 30px; */
+  justify-content: space-between;
+}
+
+#maxWeight {
+  width: 70px;
+  padding: 3px;
+  font-size: 22px;
+}
+
+#itemList {
+  font-size: 20px;
+  padding: 5px;
+}
+
+button {
+  font-size: 18px;
+  padding: 3px 10px;
+  margin-bottom: 20px;
+}
+
+span {
+  color: blue;
+}
