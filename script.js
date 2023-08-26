@@ -1,72 +1,133 @@
-window.onload = function () {
-  const doneBtn = document.getElementById("done-btn");
-  doneBtn.addEventListener("click", function () {
-    const maxWeight = parseInt(document.getElementById("max-weight").value);
-    if (!maxWeight) {
-      alert("Please enter a maximum weight.");
-      return;
-    }
-    const checkboxes = document.getElementsByName("item");
-    const items = [];
-    for (let i = 0; i < checkboxes.length; i++) {
-      if (checkboxes[i].checked) {
-        items.push(JSON.parse(checkboxes[i].value));
+const maxWeight = document.getElementById("max-weight");
+const itemList = document.getElementById("items");
+const addItem = document.getElementById("add");
+const doneBtn = document.getElementById("done");
+const setBtn = document.getElementById("set");
+const bag = document.getElementById("knapsack");
+const Display = document.getElementsByClassName("display");
+const refillBtn = document.getElementById("refill");
+
+const KnapsackItems = [
+  { name: "Laptop", weight: 13, value: 90 },
+  { name: "Phone", weight: 5, value: 70 },
+  { name: "Laptop-Charger", weight: 8, value: 20 },
+  { name: "Phone-Charger", weight: 3, value: 15 },
+  { name: "Money", weight: 12, value: 100 },
+  { name: "HeadSet", weight: 6, value: 13 },
+  { name: "Lens", weight: 4, value: 24 },
+  { name: "Jotter", weight: 2, value: 11 },
+  { name: "Pens", weight: 1, value: 8 },
+  { name: "Water-bottle", weight: 3, value: 13 },
+  { name: "Tea-Cup", weight: 6, value: 14 },
+  { name: "Launch-Box", weight: 5, value: 19 },
+  { name: "Shoe", weight: 5, value: 30 },
+  { name: "OutFit", weight: 7, value: 50 },
+  { name: "BathingSet", weight: 12, value: 35 },
+  { name: "MakeUp-Set", weight: 13, value: 10 },
+  { name: "Torch", weight: 3, value: 17 },
+  { name: "Scisors", weight: 2, value: 11 },
+  { name: "Desktop", weight: 19, value: 40 },
+  { name: "Chair", weight: 9, value: 9 },
+];
+
+let weights = ''
+let selectObject
+
+
+const knapsack = { capacity: 0, items: [], totalWeight: 0, totalValue: 0 };
+
+setBtn.addEventListener('click', () => {
+  maxWeight.disabled = true
+  weights = maxWeight.value
+  if (weights <= 0) {
+    alert.style.background = 'white'
+    alert.innerHTML = 'please input a weight'
+  }
+})
+
+doneBtn.addEventListener('click', () => {
+  for (let i = 0; i < KnapsackItems.length; i++) {
+    if (itemList.value === KnapsackItems[i].name) {
+  
+
+      if (knapsack.totalWeight <= knapsack.capacity) {
+        // Display.style.background = 'green'
+        Display.innerHTML =
+          'total weight:' +
+          ' ' +
+          knapsack.totalWeight +
+          ' ' +
+          'total value:' +
+          ' ' +
+          knapsack.totalValue +
+          ' ' +
+          'capacity:' +
+          ' ' +
+          knapsack.capacity +
+          ' ' +
+          ' Remaining space:' +
+          ' ' +
+          (knapsack.capacity - knapsack.weight)
+      } else {
+        Display.style.background = 'red'
+        Display.innerHTML =
+          'total weight:' +
+          ' ' +
+          knapsack.totalWeight +
+          ' ' +
+          'total value:' +
+          ' ' +
+          knapsack.totalValue +
+          ' ' +
+          'capacity:' +
+          ' ' +
+          knapsack.capacity +
+          ' ' +
+          ' Remaining space:' +
+          ' ' +
+          'max capacity exceeded'
       }
     }
-    if (items.length === 0) {
-      alert("Please select at least one item.");
-      return;
-    }
-    const knapsackState = knapsack(maxWeight, items);
+  }
+})
 
-    const resultDiv = document.getElementById("result");
-    resultDiv.innerHTML =` <p>Capacity: ${
-      knapsackState.capacity
-    }</p> <p>Weight: ${knapsackState.weight}</p><p>Value: ${
-      knapsackState.value
-    }</p><ul>
-        ${knapsackState.items
-          .map(
-            (item) =>
-              "<li>" +
-              item.name +
-              " (weight: " +
-              item.weight +
-              ", value: " +
-              item.value +
-              ")</li>"
-          )
-          .join("")}
-      </ul>`;
-    if (knapsackState.weight <= maxWeight) {
-      resultDiv.style.backgroundColor = "green";
-    } else {
-      resultDiv.style.backgroundColor = "red";
-    }
-  });
-};
+refillBtn.addEventListener('click', () => {
+  window.location.reload()
+})
 
-function knapsack(maxWeight, items) {
-  // initialize variables
-  let capacity = maxWeight;
-  let chosenItems = [];
-  let totalWeight = 0;
-  let totalValue = 0;
-  // sort items by value-to-weight ratio
-  items.sort((a, b) => b.value / b.weight - a.value / a.weight);
-  // loop through items and add them to knapsack if there is enough capacity
-  for (let i = 0; i < items.length; i++) {
-    if (totalWeight + items[i].weight <= capacity) {
-      chosenItems.push(items[i]);
-      totalWeight += items[i].weight;
-      totalValue += items[i].value;
+addItem.addEventListener('click', () => {
+  if (weights <= 0) {
+    // alert.style.background = 'white'
+    alert.innerHTML = 'please input a weight'
+  } else {
+    for (let i = 0; i < KnapsackItems.length; i++) {
+      if (itemList.totalValue === KnapsackItems[i].name) {
+        selectObject = KnapsackItems[i]
+        knapsack.capacity = weights
+        knapsack.totalWeight += selectObject.totalWeight
+        knapsack.totalValue += selectObject.totalValue
+        knapsack.items.push(selectObject)
+        bag.style.border = '2px solid black'
+
+        bag.innerHTML +=
+            'Item:' +
+            ' ' +
+            selectObject.name +
+            ' Weight:' +
+            ' ' +
+            selectObject.totalWeight +
+            ' Value:' +
+            ' ' +
+            selectObject.totalValue +
+            ' ' +
+            '<br>' +
+            ' ' +
+            '<br>'
+        if (knapsack.totalWeight >= knapsack.capacity) {
+          bag.style.border = '2px solid red'
+        }
+      }
     }
   }
-  // return object with knapsack state
-  return {
-    capacity: capacity,
-    items: chosenItems,
-    weight: totalWeight,
-    value: totalValue,
-  };
-}
+  itemList.remove(itemList.selectedIndex)
+})

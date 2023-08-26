@@ -7,59 +7,43 @@
 </head>
 
 <body>
-  <h1>Knapsack Problem</h1>
+  <div class="container">
+  <h1>Knapsack</h1>
   <label for="max-weight">Maximum Weight:</label>
   <input type="number" id="max-weight">
+  <button id="set" class="done">Set weight</button>
   <br><br>
-  <h2>Items:</h2>
-  <div id="items">
-    <ul>
-      <li><input type="checkbox" name="item" value="{ name: 'Laptop', weight: 13, value: 500 }"> Laptop (weight: 13,
-        value: 500)</li>
-      <li><input type="checkbox" name="item" value="{ name: 'Phone', weight: 5, value: 300 }"> Phone (weight: 5, value:
-        300)</li>
-      <li><input type="checkbox" name="item" value="{ name: 'Laptop-Charger', weight: 8, value: 100 }"> Laptop-Charger
-        (weight: 8, value: 100)</li>
-      <li><input type="checkbox" name="item" value="{ name: 'Phone-Charger', weight: 3, value: 60 }"> Phone-Charger
-        (weight: 3, value: 60)</li>
-      <li><input type="checkbox" name="item" value="{ name: 'Money', weight: 12, value: 1000 }"> Money (weight: 12,
-        value: 1000)</li>
-      <li><input type="checkbox" name="item" value="{ name: 'HeadSet', weight: 6, value: 150 }"> HeadSet (weight: 6,
-        value: 150)</li>
-      <li><input type="checkbox" name="item" value="{ name: 'Lens', weight: 4, value: 120 }"> Lens (weight: 4, value:
-        120)</li>
-      <li><input type="checkbox" name="item" value="{ name: 'Jotter', weight: 2, value: 10 }"> Jotter (weight: 2, value:
-        10)</li>
-      <li><input type="checkbox" name="item" value="{ name: 'Pens', weight: 1, value: 8 }"> Pens (weight: 1, value: 8)
-      </li>
-      <li><input type="checkbox" name="item" value="{ name: 'Water-bottle', weight: 3, value: 19 }"> Water-bottle
-        (weight: 3, value: 19)</li>
-      <li><input type="checkbox" name="item" value="{ name: 'Tea-Cup', weight: 6, value: 14 }"> Tea-Cup (weight: 6,
-        value: 14)</li>
-      <li><input type="checkbox" name="item" value="{ name: 'Launch-Box', weight: 5, value: 19.5 }"> Launch-Box (weight:
-        5, value: 19.5)</li>
-      <li><input type="checkbox" name="item" value="{ name: 'Shoe', weight: 5, value: 99.9 }"> Shoe (weight: 5, value:
-        99.9)</li>
-      <li><input type="checkbox" name="item" value="{ name: 'OutFit', weight: 7, value: 110 }"> OutFit (weight: 7,
-        value: 110)</li>
-      <li><input type="checkbox" name="item" value="{ name: 'BathingSet', weight: 12, value: 50 }"> BathingSet (weight:
-        12, value: 50)</li>
-      <li><input type="checkbox" name="item" value="{ name: 'MakeUp-Set', weight: 13, value: 90 }"> MakeUp-Set (weight:
-        13, value: 90)</li>
-      <li><input type="checkbox" name="item" value="{ name: 'Torch', weight: 3, value: 17 }"> Torch (weight: 3, value:
-        17)</li>
-      <li><input type="checkbox" name="item" value="{ name: 'Scisors', weight: 2, value: 15 }"> Scisors (weight: 2,
-        value: 15)</li>
-      <li><input type="checkbox" name="item" value="{ name: 'Desktop', weight: 19, value: 200 }"> Desktop (weight: 19,
-        value: 200)</li>
-      <li><input type="checkbox" name="item" value="{ name: 'Chair', weight: 9, value: 30 }"> Chair (weight: 9, value:
-        30)</li>
-    </ul>
-  </div>
+  <label>Items:</label>
+  <select id="items">
+    <option weight='13' value='Laptop' >Laptop/13kg</option>
+    <option weight='5' value='Phone' >Phone/5kg</option>
+    <option weight='8' value='Laptop-Charger' >Laptop-Charger/8kg</option>
+    <option weight='3' value='Phone-Charger' >Phone-Charger/3kg</option>
+    <option weight='6' value='HeadSet' >HeadSet/6kg</option>
+    <option weight='4' value='Lens' >Lens/4kg</option>
+    <option weight='2' value='Jotter' >Jotter/2kg</option>
+    <option weight='1' value='Pens' >Pens/1kg</option>
+    <option weight='3' value='Water-bottle' >Water-bottle/3kg</option>
+    <option weight='6' value='Tea-Cup' >Tea-Cup/6kg</option>
+    <option weight='5' value=' Launch-Box' > Launch-Box/5kg</option>
+    <option weight='5' value='Shoe' >Shoe/5kg</option>
+    <option weight='7' value='OutFit' >OutFit/7kg</option>
+    <option weight='12' value='BathingSet' >BathingSet/12kg</option>
+    <option weight='13' value='MakeUp-Set' >MakeUp-Set/13kg</option>
+    <option weight='3' value='Torch' >Torch/3kg</option>
+    <option weight='2' value='Scisors' >Scisors/2kg</option>
+    <option weight='19' value='Desktop' >Desktop/19kg</option>
+    <option weight='9' value='Chair' >Chair/9kg</option>
+  </select>
   <br>
-  <button id="done-btn">Done</button>
-  <br><br>
-  <div id="result"></div>
+  <button id="add">Add To List</button>
+  <p id="knapsack"></p>
+  <button id="done" class="done">Done</button>
+  <p class="display"></p>
+  <button id="refill">Refill</button>
+
+</div>
+
   <script src="./script.js"></script>
 </body>
 
