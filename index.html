@@ -1,158 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./assets/css/style.css">
-  <title>Knapsack</title>
+  <title>Knapsack Problem</title>
 </head>
 
 <body>
-
-  <form>
-    <h1>Knapsack Problem</h1>
-
-    <div class="wrapme">
-      <div>
-        <label for="max-weight">Maximum Weight:</label>
-        <input type="number" id="maxWeight">
-      </div>
-      <br>
-      <!-- <label for="item-list">Item List:</label> -->
-      <select id="itemList">
-        <option value="">Select an item</option>
-        <!-- <option value="0">Item 1(weight: 10, value: 20)</option> -->
-      </select>
-    </div>
-    <br>
-    <button id="addItem" type="button">Add Item</button>
-    <button id="done" type="button">Done</button>
-    <div id="status">Status: bag is empty</div>
-
-    <div id="bag">
-      <h3>Bag Contents</h3>
-      <ul id="itemList">Selected Items:
-        <!-- <li></li> -->
-      </ul>
-      <p>Total Weight: <span id="totalWeight"></span></p>
-      <p>Total Value: <span id="totalValue"></span></p>
-    </div>
-  </form>
-
-  <script>
-
-  </script>
-
-  <!-- <table id="result-table">
-    <thead>
-      <tr>
-        <th>Item</th>
-        <th>Weight</th>
-        <th>Value</th>
-      </tr>
-    </thead>
-    <tbody>
-    </tbody>
-  </table> -->
-
-
-  <!-- <p>Select Items:</p>
-    <ul id="itemsList">
-    <li>Laptop
-      <input type="checkbox" name="Laptop" value="23" weight="13" />
-    </li>
-    <li>
-      <input type="checkbox" name="Phone" value="20" weight="5" />
-    </li>
-    <li>
-      <input type="checkbox" name="Laptop-Charger" value="15" weight="8" />
-    </li>
-    <li>
-      <input type="checkbox" name="Phone-Charger" value="10" weight="3" />
-    </li>
-    <li>
-      <input type="checkbox" name="Money" value="25" weight="12" />
-    </li>
-    <li>
-      <input type="checkbox" name="HeadSet" value="13" weight="6" />
-    </li>
-    <li>
-      <input type="checkbox" name="Lens" value="24" weight="4" />
-    </li>
-    <li>
-      <input type="checkbox" name="Jotter" value="8" weight="2" />
-    </li>
-    <li>
-      <input type="checkbox" name="pens" value="9" weight="1" />
-    </li>
-    <li>
-      <input type="checkbox" name="Water-bottle" value="19" weight="3" />
-    </li>
-    <li>
-      <input type="checkbox" name="TeaCup" value="14" weight="6" />
-    </li>
-    <li>
-      <input type="checkbox" name="LaunchBox" value="19.5" weight="5" />
-    </li>
-    <li>
-      <input type="checkbox" name="Shoe" value="10" weight="5" />
-    </li>
-    <li>
-      <input type="checkbox" name="Outfit" value="13" weight="7" />
-    </li>
-    <li>
-      <input type="checkbox" name="BathingSet" value="21" weight="12" />
-    </li>
-    <li>
-      <input type="checkbox" name="MakeupSet" value="4" weight="13" />
-    </li>
-    <li>
-      <input type="checkbox" name="Torch" value="17" weight="3" />
-    </li>
-    <li>
-      <input type="checkbox" name="Scisors" value="11" weight="2" />
-    </li>
-    <li>
-      <input type="checkbox" name="Desktop" value="10" weight="19" />
-    </li>
-    <li>
-      <input type="checkbox" name="Chair" value="3" weight="9" />
-    </li>
-  </ul> -->
-
-  <!-- <button onclick="calculateKnapsack()">Done</button>
-  <p>Total weight: <span id="totalWeight">0</span></p> -->
-
-
-  <!-- <script>
-    function calculateKnapsack() {
-      let maxWeight = document.getElementById("maxWeight").value
-      let itemsList = document.getElementById("itemsList")
-      let totalWeight = 0
-      let totalValue = 0
-      for (let i = 0; i < itemsList.children.length; i++) {
-        let item = itemsList.children[i].children[0]
-        if(item.checked) {
-          let weight = parseInt(item.getAttribute("weight"))
-          let value = parseInt(item.value)
-          if(totalWeight + weight <= maxWeight) {
-            totalWeight += weight
-            totalValue += value
-          } else {
-            alert ("Maaximum weight reached!")
-            break
-          }
-        }
-      }
-
-      document.getElementById("totalWeight").textContent = totalWeight
-
-      document.getElementById("totalValue").textContent = totalValue
-    }
-  </script> -->
-
+  <h1>Knapsack Problem</h1>
+  <label for="max-weight">Maximum Weight:</label>
+  <input type="number" id="max-weight">
+  <br><br>
+  <h2>Items:</h2>
+  <div id="items">
+    <ul>
+      <li><input type="checkbox" name="item" value="{ name: 'Laptop', weight: 13, value: 500 }"> Laptop (weight: 13,
+        value: 500)</li>
+      <li><input type="checkbox" name="item" value="{ name: 'Phone', weight: 5, value: 300 }"> Phone (weight: 5, value:
+        300)</li>
+      <li><input type="checkbox" name="item" value="{ name: 'Laptop-Charger', weight: 8, value: 100 }"> Laptop-Charger
+        (weight: 8, value: 100)</li>
+      <li><input type="checkbox" name="item" value="{ name: 'Phone-Charger', weight: 3, value: 60 }"> Phone-Charger
+        (weight: 3, value: 60)</li>
+      <li><input type="checkbox" name="item" value="{ name: 'Money', weight: 12, value: 1000 }"> Money (weight: 12,
+        value: 1000)</li>
+      <li><input type="checkbox" name="item" value="{ name: 'HeadSet', weight: 6, value: 150 }"> HeadSet (weight: 6,
+        value: 150)</li>
+      <li><input type="checkbox" name="item" value="{ name: 'Lens', weight: 4, value: 120 }"> Lens (weight: 4, value:
+        120)</li>
+      <li><input type="checkbox" name="item" value="{ name: 'Jotter', weight: 2, value: 10 }"> Jotter (weight: 2, value:
+        10)</li>
+      <li><input type="checkbox" name="item" value="{ name: 'Pens', weight: 1, value: 8 }"> Pens (weight: 1, value: 8)
+      </li>
+      <li><input type="checkbox" name="item" value="{ name: 'Water-bottle', weight: 3, value: 19 }"> Water-bottle
+        (weight: 3, value: 19)</li>
+      <li><input type="checkbox" name="item" value="{ name: 'Tea-Cup', weight: 6, value: 14 }"> Tea-Cup (weight: 6,
+        value: 14)</li>
+      <li><input type="checkbox" name="item" value="{ name: 'Launch-Box', weight: 5, value: 19.5 }"> Launch-Box (weight:
+        5, value: 19.5)</li>
+      <li><input type="checkbox" name="item" value="{ name: 'Shoe', weight: 5, value: 99.9 }"> Shoe (weight: 5, value:
+        99.9)</li>
+      <li><input type="checkbox" name="item" value="{ name: 'OutFit', weight: 7, value: 110 }"> OutFit (weight: 7,
+        value: 110)</li>
+      <li><input type="checkbox" name="item" value="{ name: 'BathingSet', weight: 12, value: 50 }"> BathingSet (weight:
+        12, value: 50)</li>
+      <li><input type="checkbox" name="item" value="{ name: 'MakeUp-Set', weight: 13, value: 90 }"> MakeUp-Set (weight:
+        13, value: 90)</li>
+      <li><input type="checkbox" name="item" value="{ name: 'Torch', weight: 3, value: 17 }"> Torch (weight: 3, value:
+        17)</li>
+      <li><input type="checkbox" name="item" value="{ name: 'Scisors', weight: 2, value: 15 }"> Scisors (weight: 2,
+        value: 15)</li>
+      <li><input type="checkbox" name="item" value="{ name: 'Desktop', weight: 19, value: 200 }"> Desktop (weight: 19,
+        value: 200)</li>
+      <li><input type="checkbox" name="item" value="{ name: 'Chair', weight: 9, value: 30 }"> Chair (weight: 9, value:
+        30)</li>
+    </ul>
+  </div>
+  <br>
+  <button id="done-btn">Done</button>
+  <br><br>
+  <div id="result"></div>
+  <script src="./script.js"></script>
 </body>
-<script src="./script.js"></script>
 
 </html>
