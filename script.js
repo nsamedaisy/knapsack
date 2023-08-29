@@ -140,7 +140,7 @@ addItem.addEventListener("click", () => {
           " " +
           "<br>";
         if (knapsack.weight >= knapsack.capacity) {
-          bag.style.border = "1px solid red";
+          bag.style.border = "2px solid red";
         }
       }
     }
