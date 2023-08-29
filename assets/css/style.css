@@ -1,44 +1,52 @@
-/* body {
-  margin: 2% auto;
+body {
+  margin: 0;
   padding: 0;
 }
-
-form {
-  width: 60%;
+ 
+.container {
+  width: 620px;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 60px auto;
+  font-size: 22px;
   line-height: 1.5;
-  margin: auto;
-  padding: 20px;
-  font-size: 24px;
+  /* color: white; */
+  /* background-color: black; */
 }
 
 h1 {
   text-align: center;
-  font-size: 38px;
+  margin-bottom: 50px;
 }
 
-.wrapme {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.sec {
+  text-align: center;
 }
 
-#maxWeight {
-  width: 70px;
-  padding: 3px;
-  font-size: 22px;
-}
-
-#itemList {
+input {
+  padding: 5px 10px;
+  width: 90px;
   font-size: 20px;
-  padding: 5px;
+  border: none;
+  color: black;
+  border-bottom: 1px solid black;
 }
 
 button {
-  font-size: 18px;
-  padding: 3px 10px;
-  margin-bottom: 20px;
+  padding: 5px 25px;
+  font-size: 14px;
+  background-color: lightblue;
+  font-weight: 700;
 }
 
 span {
-  color: blue;
-} */
+  text-align: center;
+  color: #276f87;
+  font-weight: 900;
+}
+
+.item-bag {
+  
+}
+
+

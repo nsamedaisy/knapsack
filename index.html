@@ -8,39 +8,48 @@
 
 <body>
   <div class="container">
-  <h1>Knapsack</h1>
-  <label for="max-weight">Maximum Weight:</label>
-  <input type="number" id="max-weight">
-  <button id="set" class="done">Set weight</button>
+  <h1>Knapsack App</h1>
+
+  <div class="sec">
+    <label for="max-weight">Weight Of Knapsack:</label>
+    <input type="number" id="max-weight">
+    <button id="set" class="done">Set weight</button>
+  </div>
+ 
   <p class="alert"></p>
 
-  <br><br>
-  <label>Items:</label>
-  <select id="items">
-    <option weight='13' value='Laptop' >Laptop/13kg</option>
-    <option weight='5' value='Phone' >Phone/5kg</option>
-    <option weight='8' value='Laptop-Charger' >Laptop-Charger/8kg</option>
-    <option weight='3' value='Phone-Charger' >Phone-Charger/3kg</option>
-    <option weight='6' value='HeadSet' >HeadSet/6kg</option>
-    <option weight='4' value='Lens' >Lens/4kg</option>
-    <option weight='2' value='Jotter' >Jotter/2kg</option>
-    <option weight='1' value='Pens' >Pens/1kg</option>
-    <option weight='3' value='Water-bottle' >Water-bottle/3kg</option>
-    <option weight='6' value='Tea-Cup' >Tea-Cup/6kg</option>
-    <option weight='5' value=' Launch-Box' > Launch-Box/5kg</option>
-    <option weight='5' value='Shoe' >Shoe/5kg</option>
-    <option weight='7' value='OutFit' >OutFit/7kg</option>
-    <option weight='12' value='BathingSet' >BathingSet/12kg</option>
-    <option weight='13' value='MakeUp-Set' >MakeUp-Set/13kg</option>
-    <option weight='3' value='Torch' >Torch/3kg</option>
-    <option weight='2' value='Scisors' >Scisors/2kg</option>
-    <option weight='19' value='Desktop' >Desktop/19kg</option>
-    <option weight='9' value='Chair' >Chair/9kg</option>
-  </select>
-  <br>
-  <button id="add">Add To List</button>
-  <p>Selected Knapsack Items</p>
-  <p id="knapsack"></p>
+  <div class="sec">
+    <label>Select Items:</label>
+    <select id="items">
+      <option weight='13' value='Laptop' >Laptop/13kg</option>
+      <option weight='5' value='Phone' >Phone/5kg</option>
+      <option weight='8' value='Laptop-Charger' >Laptop-Charger/8kg</option>
+      <option weight='3' value='Phone-Charger' >Phone-Charger/3kg</option>
+      <option weight='6' value='HeadSet' >HeadSet/6kg</option>
+      <option weight='4' value='Lens' >Lens/4kg</option>
+      <option weight='2' value='Jotter' >Jotter/2kg</option>
+      <option weight='1' value='Pens' >Pens/1kg</option>
+      <option weight='3' value='Water-bottle' >Water-bottle/3kg</option>
+      <option weight='6' value='Tea-Cup' >Tea-Cup/6kg</option>
+      <option weight='5' value=' Launch-Box' > Launch-Box/5kg</option>
+      <option weight='5' value='Shoe' >Shoe/5kg</option>
+      <option weight='7' value='OutFit' >OutFit/7kg</option>
+      <option weight='12' value='BathingSet' >BathingSet/12kg</option>
+      <option weight='13' value='MakeUp-Set' >MakeUp-Set/13kg</option>
+      <option weight='3' value='Torch' >Torch/3kg</option>
+      <option weight='2' value='Scisors' >Scisors/2kg</option>
+      <option weight='19' value='Desktop' >Desktop/19kg</option>
+      <option weight='9' value='Chair' >Chair/9kg</option>
+    </select>
+  
+    <button id="add">Add To List</button>
+  </div>
+  
+  <div class="item-bag">
+    <p> <span>Knapsack Items: </span></p>
+    <p id="knapsack"></p>
+  </div>
+ 
   <button id="done" class="done">Done</button>
   <p class="display"></p>
   <button id="refill">Refill</button>
