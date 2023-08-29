@@ -50,6 +50,14 @@ doneBtn.addEventListener("click", () => {
     if (itemList.value === KnapsackItems[i].name) {
       if (knapsack.weight <= knapsack.capacity) {
         Display[0].style.background = "green";
+        Display[0].style.padding = "20px"
+        Display[0].style.fontSize = "20px"
+        Display[0].style.lineHeight = "1.5"
+        Display[0].style.margin = "40px"
+        Display[0].style.borderRadius = "5px"
+        Display[0].style.color = "white"
+
+
         Display[0].innerHTML =
           "total weight:" +
           " " +
@@ -71,6 +79,13 @@ doneBtn.addEventListener("click", () => {
           (knapsack.capacity - knapsack.weight);
       } else {
         Display[0].style.background = "red";
+        Display[0].style.padding = "20px"
+        Display[0].style.fontSize = "20px"
+        Display[0].style.lineHeight = "1.5"
+        Display[0].style.margin = "40px"
+        Display[0].style.borderRadius = "5px"
+        Display[0].style.color = "white"
+
         Display[0].innerHTML =
           "total weight:" +
           " " + 
@@ -107,7 +122,8 @@ addItem.addEventListener("click", () => {
         knapsack.weight += selectObject.weight;
         knapsack.value += selectObject.value;
         knapsack.items.push(selectObject);
-        bag.style.border = "2px solid black";
+        bag.style.border = "2px solid green";
+        bag.style.padding = "20px"
 
         bag.innerHTML +=
           "Item:" +
@@ -124,7 +140,7 @@ addItem.addEventListener("click", () => {
           " " +
           "<br>";
         if (knapsack.weight >= knapsack.capacity) {
-          bag.style.border = "2px solid red";
+          bag.style.border = "1px solid red";
         }
       }
     }
