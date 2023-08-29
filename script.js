@@ -1,5 +1,6 @@
 const maxWeight = document.getElementById("max-weight");
 const itemList = document.getElementById("items");
+const alert = document.getElementsByClassName("alert");
 const addItem = document.getElementById("add");
 const doneBtn = document.getElementById("done");
 const setBtn = document.getElementById("set");
@@ -30,104 +31,103 @@ const KnapsackItems = [
   { name: "Chair", weight: 9, value: 9 },
 ];
 
-let weights = ''
-let selectObject
+let weights = "";
+let selectObject;
 
+const knapsack = { capacity: 0, items: [], weight: 0, value: 0 };
 
-const knapsack = { capacity: 0, items: [], totalWeight: 0, totalValue: 0 };
-
-setBtn.addEventListener('click', () => {
-  maxWeight.disabled = true
-  weights = maxWeight.value
+setBtn.addEventListener("click", () => {
+  maxWeight.disabled = true;
+  weights = maxWeight.value;
   if (weights <= 0) {
-    alert.style.background = 'white'
-    alert.innerHTML = 'please input a weight'
+    alert[0].style.background = "white";
+    alert[0].innerHTML = "please input a weight";
   }
-})
+});
 
-doneBtn.addEventListener('click', () => {
+doneBtn.addEventListener("click", () => {
   for (let i = 0; i < KnapsackItems.length; i++) {
     if (itemList.value === KnapsackItems[i].name) {
-  
-
-      if (knapsack.totalWeight <= knapsack.capacity) {
-        // Display.style.background = 'green'
-        Display.innerHTML =
-          'total weight:' +
-          ' ' +
-          knapsack.totalWeight +
-          ' ' +
-          'total value:' +
-          ' ' +
-          knapsack.totalValue +
-          ' ' +
-          'capacity:' +
-          ' ' +
+      if (knapsack.weight <= knapsack.capacity) {
+        Display[0].style.background = "green";
+        Display[0].innerHTML =
+          "total weight:" +
+          " " +
+          knapsack.weight +
+          " " +
+          "<br>" +
+          "total value:" +
+          " " +
+          knapsack.value +
+          " " +
+          "<br>" +
+          "capacity:" +
+          " " +
           knapsack.capacity +
-          ' ' +
-          ' Remaining space:' +
-          ' ' +
-          (knapsack.capacity - knapsack.weight)
+          " " +
+          "<br>" +
+          " Remaining space:" +
+          " " +
+          (knapsack.capacity - knapsack.weight);
       } else {
-        Display.style.background = 'red'
-        Display.innerHTML =
-          'total weight:' +
-          ' ' +
-          knapsack.totalWeight +
-          ' ' +
-          'total value:' +
-          ' ' +
-          knapsack.totalValue +
-          ' ' +
-          'capacity:' +
-          ' ' +
+        Display[0].style.background = "red";
+        Display[0].innerHTML =
+          "total weight:" +
+          " " + 
+          knapsack.weight +
+          " " + "<br>" +
+          "total value:" +
+          " " +
+          knapsack.value +
+          " " + "<br>" +
+          "capacity:" +
+          " " +
           knapsack.capacity +
-          ' ' +
-          ' Remaining space:' +
-          ' ' +
-          'max capacity exceeded'
+          " " + "<br>" +
+          " " +
+          "You exceeded the bag's capacity refill and make sure you don't exceed this time";
       }
     }
   }
-})
+});
 
-refillBtn.addEventListener('click', () => {
-  window.location.reload()
-})
+refillBtn.addEventListener("click", () => {
+  window.location.reload();
+});
 
-addItem.addEventListener('click', () => {
+addItem.addEventListener("click", () => {
   if (weights <= 0) {
-    // alert.style.background = 'white'
-    alert.innerHTML = 'please input a weight'
+    alert.innerHTML = "please input a weight";
   } else {
+    const selectedItem = itemList.options[itemList.selectedIndex].value;
     for (let i = 0; i < KnapsackItems.length; i++) {
-      if (itemList.totalValue === KnapsackItems[i].name) {
-        selectObject = KnapsackItems[i]
-        knapsack.capacity = weights
-        knapsack.totalWeight += selectObject.totalWeight
-        knapsack.totalValue += selectObject.totalValue
-        knapsack.items.push(selectObject)
-        bag.style.border = '2px solid black'
+      if (selectedItem === KnapsackItems[i].name) {
+        selectObject = KnapsackItems[i];
+        knapsack.capacity = weights;
+        knapsack.weight += selectObject.weight;
+        knapsack.value += selectObject.value;
+        knapsack.items.push(selectObject);
+        bag.style.border = "2px solid black";
 
         bag.innerHTML +=
-            'Item:' +
-            ' ' +
-            selectObject.name +
-            ' Weight:' +
-            ' ' +
-            selectObject.totalWeight +
-            ' Value:' +
-            ' ' +
-            selectObject.totalValue +
-            ' ' +
-            '<br>' +
-            ' ' +
-            '<br>'
-        if (knapsack.totalWeight >= knapsack.capacity) {
-          bag.style.border = '2px solid red'
+          "Item:" +
+          " " +
+          selectObject.name +
+          " Weight:" +
+          " " +
+          selectObject.weight +
+          " Value:" +
+          " " +
+          selectObject.value +
+          " " +
+          "<br>" +
+          " " +
+          "<br>";
+        if (knapsack.weight >= knapsack.capacity) {
+          bag.style.border = "2px solid red";
         }
       }
     }
+    itemList.remove(itemList.selectedIndex);
   }
-  itemList.remove(itemList.selectedIndex)
-})
+});
