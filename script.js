@@ -50,6 +50,44 @@ setBtn.addEventListener("click", () => {
   }
 });
 
+addItem.addEventListener("click", () => {
+  if (weights <= 0) {
+    alert[0].innerHTML = "ou have to input the weight of your knapsack";
+  } else {
+    const selectedItem = itemList.options[itemList.selectedIndex].value;
+    for (let i = 0; i < KnapsackItems.length; i++) {
+      if (selectedItem === KnapsackItems[i].name) {
+        selectObject = KnapsackItems[i];
+        knapsack.capacity = weights;
+        knapsack.weight += selectObject.weight;
+        knapsack.value += selectObject.value;
+        knapsack.items.push(selectObject);
+        bag.style.border = "2px solid green";
+        bag.style.padding = "20px"
+
+        bag.innerHTML +=
+          "Item:" +
+          " " +
+          selectObject.name +
+          " Weight:" +
+          " " +
+          selectObject.weight +
+          " Value:" +
+          " " +
+          selectObject.value +
+          " " +
+          "<br>" +
+          " " +
+          "<br>";
+        if (knapsack.weight >= knapsack.capacity) {
+          bag.style.border = "2px solid red";
+        }
+      }
+    }
+    itemList.remove(itemList.selectedIndex);
+  }
+});
+
 doneBtn.addEventListener("click", () => {
   for (let i = 0; i < KnapsackItems.length; i++) {
     if (itemList.value === KnapsackItems[i].name) {
@@ -115,40 +153,3 @@ refillBtn.addEventListener("click", () => {
   window.location.reload();
 });
 
-addItem.addEventListener("click", () => {
-  if (weights <= 0) {
-    alert.innerHTML = "please input a weight";
-  } else {
-    const selectedItem = itemList.options[itemList.selectedIndex].value;
-    for (let i = 0; i < KnapsackItems.length; i++) {
-      if (selectedItem === KnapsackItems[i].name) {
-        selectObject = KnapsackItems[i];
-        knapsack.capacity = weights;
-        knapsack.weight += selectObject.weight;
-        knapsack.value += selectObject.value;
-        knapsack.items.push(selectObject);
-        bag.style.border = "2px solid green";
-        bag.style.padding = "20px"
-
-        bag.innerHTML +=
-          "Item:" +
-          " " +
-          selectObject.name +
-          " Weight:" +
-          " " +
-          selectObject.weight +
-          " Value:" +
-          " " +
-          selectObject.value +
-          " " +
-          "<br>" +
-          " " +
-          "<br>";
-        if (knapsack.weight >= knapsack.capacity) {
-          bag.style.border = "2px solid red";
-        }
-      }
-    }
-    itemList.remove(itemList.selectedIndex);
-  }
-});
