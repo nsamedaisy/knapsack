@@ -103,7 +103,6 @@ doneBtn.addEventListener("click", () => {
         Display[0].style.borderRadius = "5px"
         Display[0].style.color = "white"
 
-
         Display[0].innerHTML =
           "total weight:" +
           " " +
