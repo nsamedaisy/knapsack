@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 620px;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 10px auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 50px;
+  color: #1c5669;
+}
+
+.details {
+  color: #1c5669;
+  font-size: 18px;
+  text-align: center;
+  width: 480px;
+  margin:  0 auto 60px;
+}
+
+.sec {
+  text-align: center;
+}
+
+.section {
+  margin-bottom: 50px;
+}
+
+label {
+  font-size: 24px;
+  color: #103f4e;
+  margin-right: 15px;
+}
+
+select {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: #103f4e;
+  color: white;
+}
+
+input {
+  padding: 5px 10px;
+  width: 90px;
+  font-size: 20px;
+  border: none;
+  color: #103f4e;
+  border-bottom: 1px solid #1c5669;
+}
+
+button {
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #99daf0;
+  font-weight: 700;
+  border: none;
+  color: #103f4e;
+  margin-left: 10px;
+}
+
+span {
+  text-align: center;
+  color: #276f87;
+  font-weight: 900;
+  font-size: 26px;
+  margin-right: 20px;
+}
+
+.item-bag {
+  width: 500px;
+  margin: 50px auto;
+}
+
+#done {
+  margin: 0 100px;
+}
+
+.done {
+  padding: 8px 20px;
+  font-size: 18px;
+  width: 180px;
+  margin: auto;
+}
