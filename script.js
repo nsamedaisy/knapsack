@@ -52,7 +52,10 @@ setBtn.addEventListener("click", () => {
 
 addItem.addEventListener("click", () => {
   if (weights <= 0) {
-    alert[0].innerHTML = "ou have to input the weight of your knapsack";
+    alert[0].style.color = "red";
+    alert[0].style.textAlign = "center";
+    alert[0].style.fontSize = "24px";
+    alert[0].innerHTML = "You have to input the weight of your knapsack";
   } else {
     const selectedItem = itemList.options[itemList.selectedIndex].value;
     for (let i = 0; i < KnapsackItems.length; i++) {
