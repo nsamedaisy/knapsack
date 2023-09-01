@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
 }
- 
+
 .container {
   width: 620px;
   padding: 10px;
@@ -12,9 +12,17 @@ body {
 
 h1 {
   text-align: center;
-  margin-bottom: 70px;
+  margin-bottom: 40px;
   font-size: 50px;
   color: #1c5669;
+}
+
+.details {
+  color: #1c5669;
+  font-size: 18px;
+  text-align: center;
+  width: 480px;
+  margin:  0 auto 60px;
 }
 
 .sec {
@@ -73,7 +81,7 @@ span {
 }
 
 #done {
-  margin: 0 100px ;
+  margin: 0 100px;
 }
 
 .done {
@@ -82,5 +90,3 @@ span {
   width: 180px;
   margin: auto;
 }
-
-
