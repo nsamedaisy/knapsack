@@ -37,11 +37,16 @@ let selectObject;
 const knapsack = { capacity: 0, items: [], weight: 0, value: 0 };
 
 setBtn.addEventListener("click", () => {
-  maxWeight.disabled = true;
   weights = maxWeight.value;
   if (weights <= 0) {
-    alert[0].style.background = "white";
-    alert[0].innerHTML = "please input a weight";
+    alert[0].style.color = "red";
+    alert[0].style.textAlign = "center";
+    alert[0].style.fontSize = "24px";
+    alert[0].innerHTML = "You have to input the weight of your knapsack";
+    maxWeight.focus();
+  } else {
+    maxWeight.disabled = true;
+    alert[0].innerHTML = "";
   }
 });
 
